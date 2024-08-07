@@ -1,0 +1,41 @@
+{
+  "name": "@apps/sveltekit-example-app",
+  "version": "0.0.1",
+  "private": true,
+  "description": "SvelteKit Example App",
+  "type": "module",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "svelte-kit sync",
+    "clean": "del .turbo coverage .svelte-kit",
+    "dev": "vite dev",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "typecheck": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "dependencies": {
+    "oslo": "1.2.1",
+    "pg": "8.12.0"
+  },
+  "devDependencies": {
+    "@packages/auth-lucia": "workspace:*",
+    "@packages/example-pkg": "workspace:*",
+    "@sveltejs/adapter-node": "5.2.0",
+    "@sveltejs/kit": "2.5.20",
+    "@sveltejs/vite-plugin-svelte": "3.1.1",
+    "@toolchain/eslint-config": "workspace:*",
+    "@toolchain/typescript-config": "workspace:*",
+    "@toolchain/vitest-config": "workspace:*",
+    "autoprefixer": "10.4.20",
+    "postcss": "8.4.41",
+    "svelte": "5.0.0-next.210",
+    "svelte-check": "3.8.5",
+    "sveltekit-superforms": "2.16.1",
+    "tailwindcss": "3.4.7",
+    "tslib": "2.6.3",
+    "vite": "5.3.5",
+    "zod": "3.23.8"
+  }
+}
