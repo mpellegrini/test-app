@@ -28,6 +28,7 @@ jobs:
       - name: Vercel Build
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
 
+
       - name: Vercel Deploy
         run: |
-          url="$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}")
+          url="$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})"
