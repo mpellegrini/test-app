@@ -56,3 +56,4 @@ vite.config.ts.timestamp-*
 
 # local docker volumes
 /.docker/data
+.vercel

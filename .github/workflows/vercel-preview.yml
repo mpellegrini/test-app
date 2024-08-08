@@ -1,0 +1,32 @@
+name: Vercel Staged Production Deploy
+on:
+  workflow_dispatch:
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+jobs:
+  deploy-production-staged:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Install
+        uses: ./.github/composite-actions/install
+
+      - name: Run Build
+        run: pnpm exec turbo run build --filter=@apps/sveltekit-example-app^...
+
+      - name: Install Vercel CLI
+        run: pnpm install vercel@latest -w
+
+      - name: Vercel Pull
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Vercel Build
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Vercel Deploy
+        run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
