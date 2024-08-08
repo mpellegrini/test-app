@@ -32,4 +32,4 @@ jobs:
       - name: Vercel Deploy
         run: |
           url="$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})"
-          vercel alias --token=${{ secrets.VERCEL_TOKEN }} set "$url" staging.simracingathome.com  --scope=michael-pellegrinis-projects
+          vercel alias --token=${{ secrets.VERCEL_TOKEN }} set "$url" staging.perfectlapsim.com --scope=michael-pellegrinis-projects
