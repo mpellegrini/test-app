@@ -1,4 +1,4 @@
-import dotenv from 'dotenv'
+import 'dotenv/config'
 import { z } from 'zod'
 
 const envSchema = z.object({
@@ -14,4 +14,4 @@ const envSchema = z.object({
   DB_MAX_CONNECTIONS: z.coerce.number().min(1).default(10),
 })
 
-export default envSchema.parse(dotenv.config().parsed)
+export default envSchema.parse(process.env)
