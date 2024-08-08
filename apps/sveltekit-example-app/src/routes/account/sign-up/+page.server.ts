@@ -1,4 +1,3 @@
-import { DB_CONNECTION_STRING } from '$env/static/private'
 import { fail, message, setError, superValidate } from 'sveltekit-superforms'
 import { zod } from 'sveltekit-superforms/adapters'
 
@@ -16,7 +15,6 @@ export const load = (async () => {
 
 export const actions = {
   default: async ({ cookies, request }) => {
-    console.log('loading db_connection_string ', DB_CONNECTION_STRING)
     const form = await superValidate(request, zod(signupSchema))
 
     if (!form.valid) {

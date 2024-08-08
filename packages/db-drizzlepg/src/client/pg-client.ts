@@ -14,6 +14,8 @@ const {
   DB_MAX_CONNECTIONS,
 } = env
 
+console.log('*** DB_CONNECTION_STRING ', DB_CONNECTION_STRING)
+
 export const connection = new pg.Pool({
   connectionString: DB_CONNECTION_STRING,
 
