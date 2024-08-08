@@ -38,6 +38,7 @@ export const actions = {
       }
     } catch (err) {
       if (err instanceof Error) {
+        console.log(err.message)
         return setError(form, 'email', 'E-mail already exists.')
       }
       throw err
